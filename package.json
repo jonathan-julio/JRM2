@@ -1,0 +1,19 @@
+{
+  "name": "pong",
+  "version": "1.0.0",
+  "description": "servidor pong",
+  "main": "socket.js",
+  "scripts": {
+    "start":"nodemon index.js"
+  },
+  "author": "jonathan julio",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "jquery": "^3.7.0",
+    "socket.io": "^4.6.1"
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página para Celular</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    // Verifica se está sendo acessado de um desktop
+    function checkForDesktop() {
+      if (!(/Mobi|Android/i.test(navigator.userAgent))) {
+        window.location.href = "/";
+      }
+    }
+
+    // Chama a função ao carregar a página
+    window.addEventListener("load", checkForDesktop);
+  </script>
+</head>
+<body>
+    <div class="message">
+      <p>Por favor, conecte-se usando um dispositivo móvel.</p>
+    </div>
+    <img src="https://imagepng.org/wp-content/uploads/2019/09/proibido-celular.png" alt="Celular" width="200" height="200">
+  </body>
+</html>

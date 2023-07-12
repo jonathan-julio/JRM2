@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/home/homeStyle.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+  <script>
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      window.location.href = 'celpage';
+    }
+  </script>
+</head>
+<body onload="checkAuthStatus()">
+  <div id="menu">
+    <h2>Bomberman</h2>
+    <div style="padding-right: 40px;">
+      <button id="logout-btn" onclick="criarSala('gameCustom')">Criar sala</button>
+      <button id="logout-btn" onclick="criarSala('solo')">Game solo</button>
+      <button id="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="left-box">
+      <h1 style="text-align: center;">Bem-vindo à Homepage</h1>
+      <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+          <!-- Conteúdo do chat aqui -->
+        </div>
+        <div class="chat-input">
+          <input style = "font-size: 15; height: 10%; width: 40%;" type="text" id="chat-message-input" placeholder="Digite sua mensagem" />
+          <button id="chat-send-button">Enviar</button>
+        </div>
+      </div>
+    </div>
+    <div class="right-boxes">
+      <div class="box-section">
+        <h2>Usuários</h2>
+        <div id="users-box"></div>
+      </div>      
+      <div class="box-section">
+        <h2>Partidas</h2>
+        <div id="salas-box"></div>
+      </div>
+    </div>
+  </div>
+  <script src="/home/homepage.js"></script>
+  <script>
+    function criarSala(tipo) {
+      // Aqui você pode adicionar a lógica para criar a sala com o tipo específico
+      console.log('Tipo da sala:', tipo);
+      if (tipo=="gameCustom") {
+        socket.emit('gameCustom', token);
+      }
+      if (tipo=="solo") {
+        window.location.href = 'gamesolo';
+      }
+      if (tipo=="x1") {
+        window.location.href = 'gamex1';
+      }
+      
+    }
+  </script>  
+</body>
+</html>

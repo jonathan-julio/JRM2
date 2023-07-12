@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tela de Login</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+  <script src="script.js">
+
+  </script>
+  <style>
+    body {
+        background-image: url("https://s2.glbimg.com/dCbJGw8hXzNfTNIueq3OEZrhqxM=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/jo/g1/f/original/2017/02/17/thumbnail_huol_03mar16_cicero_oliveira_ar.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+    
+      .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+    
+      .form-box {
+        width: 600px;
+        height: 400px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      input {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+    
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      button {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+    
+      button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+      }
+    
+      button[type="button"] {
+        background-color: #28a745;
+        color: #fff;
+      }
+    
+      .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+  </style>
+  <script>
+    var token = localStorage.getItem('token');
+    console.log(token);
+    if (token != null) {
+        window.location.href = '/'; // Redireciona para a página de login
+    }
+    document.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            login();
+        }
+    });
+  </script>
+</head>
+<body>
+    <div class="form-box">
+        <form method="get" action="/resultado">
+            <h1>Login</h1>
+            <div id="message"></div>
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <button type="button" style="width: 100px;"  onclick="login()">Login</button>
+            <button type="button" style="width: 100px; background-color :#007bff" onclick="signup()">Cadastrar</button>
+        </form>
+      </div>
+</body>
+</html>
